@@ -16,12 +16,6 @@ class ConfigurationPage extends GetView<ConfigurationController> {
         controller: controller,
         isMobile: isMobile,
       ),
-      floatingActionButton: isMobile
-          ? FloatingActionButton(
-              child: const Icon(Icons.save),
-              onPressed: controller.save,
-            )
-          : null,
     );
   }
 }

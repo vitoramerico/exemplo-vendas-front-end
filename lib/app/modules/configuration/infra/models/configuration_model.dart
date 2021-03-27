@@ -7,7 +7,7 @@ part 'configuration_model.g.dart';
 class ConfigurationModel {
   final bool isDakMode;
   final String localeLanguageCode;
-  final String localeCountryCode;
+  final String? localeCountryCode;
 
   ConfigurationModel({
     required this.isDakMode,

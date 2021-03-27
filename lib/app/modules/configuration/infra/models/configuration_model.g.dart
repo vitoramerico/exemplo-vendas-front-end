@@ -10,7 +10,7 @@ ConfigurationModel _$ConfigurationModelFromJson(Map<String, dynamic> json) {
   return ConfigurationModel(
     isDakMode: json['isDakMode'] as bool,
     localeLanguageCode: json['localeLanguageCode'] as String,
-    localeCountryCode: json['localeCountryCode'] as String,
+    localeCountryCode: json['localeCountryCode'] as String?,
   );
 }
 

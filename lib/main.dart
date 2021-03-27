@@ -16,7 +16,6 @@ import 'app/shared/theme/app_theme_light.dart';
 import 'app/shared/translations/app_translations.dart';
 
 void main() async {
-  //await DotEnv.load(fileName: ".env");
   await _init();
   runApp(MyApp());
 }
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
       getPages: AppPages.routes,
       defaultTransition: Transition.cupertino,
       theme: appThemeLight,
-      darkTheme: appThemeDark,
+      //darkTheme: appThemeDark, //Se deixar habilitado não funciona a mudanca de thema no mac
       locale: Get.deviceLocale,
       fallbackLocale: Locale('pt', 'BR'), // Padrão se não encontrar a selecionada
       translationsKeys: AppTranslation.translations,
@@ -57,7 +56,10 @@ class MyApp extends StatelessWidget {
     result.fold((error) {
       print(error.message);
     }, (configuration) {
-      if (configuration == null) return;
+      if (configuration == null) {
+        Get.changeTheme(Get.isPlatformDarkMode ? appThemeDark : appThemeLight);
+        return;
+      }
 
       Get.changeTheme(configuration.isDakMode ? appThemeDark : appThemeLight);
       Get.updateLocale(Locale(configuration.localeLanguageCode, configuration.localeCountryCode));

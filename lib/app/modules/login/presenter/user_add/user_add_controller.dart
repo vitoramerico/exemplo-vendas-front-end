@@ -20,9 +20,11 @@ class UserAddController extends GetxController {
 
     var result = await _userSave(store.user);
 
-    result.fold((error) {}, (_) {
+    result.fold((error) {
+      MySnackBar.show(MySnackBarModel(msg: error.message, type: SnackBarTpEnum.error));
+    }, (_) {
       Get.back();
-      MySnackBar.show(MySnackBarModel(msg: 'Cadastro realizado com sucesso'));
+      MySnackBar.show(MySnackBarModel(msg: 'cadastroRealizadoComSucesso'));
     });
   }
 

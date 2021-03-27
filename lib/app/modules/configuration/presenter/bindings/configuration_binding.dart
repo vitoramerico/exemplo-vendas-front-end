@@ -19,6 +19,6 @@ class ConfigurationBinding extends Bindings {
     Get.lazyPut<IConfigurationGet>(() => ConfigurationGet(Get.find()));
     Get.lazyPut<IConfigurationSave>(() => ConfigurationSave(Get.find()));
     Get.lazyPut(() => ConfigurationStore());
-    Get.lazyPut(() => ConfigurationController(Get.find()));
+    Get.lazyPut(() => ConfigurationController(Get.find(), Get.find()));
   }
 }
