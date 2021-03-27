@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_vendas/app/shared/store/shared_store.dart';
 import 'package:get/get.dart';
 
 import '../../../shared/routes/app_pages.dart';
@@ -17,11 +16,6 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
-  List<Future> precaches = [
-    Get.putAsync<SharedStore>(() => SharedStore()(), permanent: true),
-    Future.delayed(Duration(seconds: 3)),
-  ];
-
   final _animationDuration = Duration(seconds: 2);
   var _startAnimation = false;
 
@@ -33,13 +27,13 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       setState(() {
         _startAnimation = true;
       });
+    });
 
-      Future.wait(precaches).then((_) {
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-          statusBarColor: Theme.of(context).primaryColor, // status bar color
-        ));
-        Get.offAndToNamed(Routes.LOGIN);
-      });
+    Future.delayed(Duration(seconds: 3)).then((_) {
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).primaryColor, // status bar color
+      ));
+      Get.offAndToNamed(Routes.LOGIN);
     });
   }
 

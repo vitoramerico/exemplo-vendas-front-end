@@ -9,5 +9,9 @@ class SharedStore extends GetxController {
   String get name => user?.name ?? '';
   String get email => user?.email ?? '';
 
+  final _isDarkTheme = false.obs;
+  set isDarkTheme(bool value) => this._isDarkTheme.value = value;
+  bool get isDarkTheme => this._isDarkTheme.value ?? false;
+
   Future<SharedStore> call() => Future.value(this);
 }
