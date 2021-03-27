@@ -19,4 +19,5 @@ final Map<String, String> ptBR = {
   'themaEscuro': 'Thema escuro',
   'idioma': 'Idioma',
   'cadastroRealizadoComSucesso': 'Cadastro realizado com sucesso',
+  'bemVindo': 'Bem Vindo!',
 };

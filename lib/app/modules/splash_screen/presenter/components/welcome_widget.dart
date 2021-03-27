@@ -19,10 +19,26 @@ class WelcomeWidget extends StatelessWidget {
         duration: animationDuration,
         opacity: startAnimation ? 1.0 : 0.0,
         child: Text(
-          'Bem vindo!',
-          style: Get.textTheme?.headline3,
+          'bemVindo'.tr,
+          style: Theme.of(context).textTheme.headline3?.copyWith(
+                fontWeight: FontWeight.bold,
+                foreground: getLinearGradientForeground(context),
+              ),
         ),
       ),
     );
+  }
+
+  Paint? getLinearGradientForeground(BuildContext context) {
+    var colorBase = Theme.of(context).textTheme.headline1?.color;
+
+    if (colorBase == null) return null;
+
+    var colors = <Color>[colorBase, colorBase.withOpacity(0.2)];
+
+    final Shader linearGradient =
+        LinearGradient(colors: colors).createShader(new Rect.fromLTWH(0.0, 0.0, 300.0, 70.0));
+
+    return Paint()..shader = linearGradient;
   }
 }

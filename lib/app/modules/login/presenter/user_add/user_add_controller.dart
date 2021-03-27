@@ -24,7 +24,7 @@ class UserAddController extends GetxController {
       MySnackBar.show(MySnackBarModel(msg: error.message, type: SnackBarTpEnum.error));
     }, (_) {
       Get.back();
-      MySnackBar.show(MySnackBarModel(msg: 'cadastroRealizadoComSucesso'));
+      MySnackBar.show(MySnackBarModel(msg: 'cadastroRealizadoComSucesso'.tr));
     });
   }
 

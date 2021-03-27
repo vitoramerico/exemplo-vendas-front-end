@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProgressWidget extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class ProgressWidget extends StatelessWidget {
           children: [
             CircularProgressIndicator(),
             const SizedBox(width: 10),
-            Text('Carregando...'),
+            Text('carregando'.tr),
           ],
         ),
       ),
