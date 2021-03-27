@@ -1,16 +1,14 @@
-# flutter_vendas
+# Descrição
 
-A new Flutter project.
+Exemplo de sistema de vendas rodando em Desktop, Web e Mobile. Utilizar essa API [Next_Api_Prisma](https://flutter.dev/docs) para a comunicação.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Compilação
+```bash
+# Para compilar utilize os seguintes comandos conforme a plataforma desejada
+$ flutter build web
+$ flutter build linux
+$ flutter build windows
+$ flutter build mac
+```
+## Documentação
+- [Flutter](https://flutter.dev/docs)
