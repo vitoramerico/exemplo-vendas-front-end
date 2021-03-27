@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   onDestinationSelected: (int index) {
                     _selectedIndex = index;
                     //setCollapse();
-                    //Get.toNamed(Get.currentRoute + Routes.ORDER);
+                    controller.openPage(index);
                   },
                   extended: _extended,
                   leading: Center(
@@ -70,22 +70,27 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                     NavigationRailDestination(
                       icon: Icon(Icons.home_outlined),
                       selectedIcon: Icon(Icons.home),
-                      label: Text('Home'),
+                      label: Text('home'.tr),
                     ),
                     NavigationRailDestination(
                       icon: Icon(Icons.post_add_outlined),
                       selectedIcon: Icon(Icons.post_add),
-                      label: Text('Pedidos'),
+                      label: Text('pedidos'.tr),
                     ),
                     NavigationRailDestination(
                       icon: Icon(Icons.person_add_alt_1_outlined),
                       selectedIcon: Icon(Icons.person_add_alt_1),
-                      label: Text('Clientes'),
+                      label: Text('clientes'.tr),
                     ),
                     NavigationRailDestination(
                       icon: Icon(Icons.qr_code_outlined),
                       selectedIcon: Icon(Icons.qr_code),
-                      label: Text('Produtos'),
+                      label: Text('produtos'.tr),
+                    ),
+                    NavigationRailDestination(
+                      icon: Icon(Icons.settings_applications_outlined),
+                      selectedIcon: Icon(Icons.settings_applications),
+                      label: Text('configuracoes'.tr),
                     ),
                   ],
                 ),

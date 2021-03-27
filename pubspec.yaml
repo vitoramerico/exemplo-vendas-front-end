@@ -1,7 +1,7 @@
 name: flutter_vendas
 description: Exemplo Sistema Vendas.
 author: Vitor Hugo Matheus Américo
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
@@ -37,6 +37,6 @@ vars:
   get: flutter pub get
   runner: flutter pub run build_runner
 scripts:
-  build: $runner build
+  build: $runner build --delete-conflicting-outputs
   watch: $runner watch --delete-conflicting-outputs
   build_clean: $clean & $get & $runner build --delete-conflicting-outputs

@@ -1,3 +1,5 @@
+import 'package:flutter_vendas/app/modules/configuration/presenter/bindings/configuration_binding.dart';
+import 'package:flutter_vendas/app/modules/configuration/presenter/configuration_page.dart';
 import 'package:flutter_vendas/app/modules/home/presenter/bindings/home_binding.dart';
 import 'package:flutter_vendas/app/modules/home/presenter/home_page.dart';
 import 'package:flutter_vendas/app/modules/login/presenter/login/bindings/login_binding.dart';
@@ -43,6 +45,11 @@ class AppPages {
           name: Routes.ORDER,
           page: () => OrderLstPage(),
           binding: OrderLstBinding(),
+        ),
+        GetPage(
+          name: Routes.CONFIGURATION,
+          page: () => ConfigurationPage(),
+          binding: ConfigurationBinding(),
         ),
       ],
     ),

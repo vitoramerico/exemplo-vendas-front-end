@@ -11,4 +11,11 @@ final Map<String, String> ptBR = {
   'email': 'E-mail',
   'nome': 'Nome',
   'camposInvalidos': 'Campos inválidos',
+  'configuracoes': 'Configurações',
+  'home': 'Home',
+  'pedidos': 'Pedidos',
+  'clientes': 'Clientes',
+  'produtos': 'Produtos',
+  'themaEscuro': 'Thema escuro',
+  'idioma': 'Idioma',
 };

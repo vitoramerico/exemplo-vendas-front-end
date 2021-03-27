@@ -19,7 +19,7 @@ class UserRepository implements IUserRepository {
 
       return Right(resultConvert);
     } on ArgumentError catch (error) {
-      return Left(DatasourceError(error.message.toString()));
+      return Left(DatasourceError(error.message));
     } catch (error) {
       return Left(DatasourceError(error.toString()));
     }
