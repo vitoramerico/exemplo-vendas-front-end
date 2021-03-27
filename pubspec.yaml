@@ -1,0 +1,42 @@
+name: flutter_vendas
+description: Exemplo Sistema Vendas.
+author: Vitor Hugo Matheus Américo
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get: ^4.0.0-nullsafety.2
+  get_storage: ^2.0.1
+  font_awesome_flutter: ^9.0.0-nullsafety
+  json_annotation: ^4.0.0
+  dartz: ^0.10.0-nullsafety.1
+  flutter_dotenv: ^4.0.0-nullsafety.0
+  lottie: ^1.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  json_serializable: ^4.0.2
+  build_runner: ^1.11.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
+    - assets/animations/
+
+## Slidy Scripts
+vars:
+  clean: flutter clean
+  get: flutter pub get
+  runner: flutter pub run build_runner
+scripts:
+  build: $runner build
+  watch: $runner watch --delete-conflicting-outputs
+  build_clean: $clean & $get & $runner build --delete-conflicting-outputs
