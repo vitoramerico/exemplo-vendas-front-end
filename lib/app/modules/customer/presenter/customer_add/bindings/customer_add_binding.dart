@@ -1,4 +1,6 @@
 import 'package:flutter_vendas/app/modules/customer/domain/repositories/customer_repository_interface.dart';
+import 'package:flutter_vendas/app/modules/customer/domain/usecases/customer_get_by_id/customer_get_by_id_all.dart';
+import 'package:flutter_vendas/app/modules/customer/domain/usecases/customer_get_by_id/customer_get_by_id_interface.dart';
 import 'package:flutter_vendas/app/modules/customer/domain/usecases/customer_save/customer_save.dart';
 import 'package:flutter_vendas/app/modules/customer/domain/usecases/customer_save/customer_save_interface.dart';
 import 'package:flutter_vendas/app/modules/customer/external/datasources/customer_datasource.dart';
@@ -18,7 +20,8 @@ class CustomerAddBinding extends Bindings {
     Get.lazyPut<ICustomerDatasource>(() => CustomerDatasource(Get.find()));
     Get.lazyPut<ICustomerRepository>(() => CustomerRepository(Get.find()));
     Get.lazyPut<ICustomerSave>(() => CustomerSave(Get.find()));
+    Get.lazyPut<ICustomerGetById>(() => CustomerGetById(Get.find()));
     Get.lazyPut(() => CustomerAddStore());
-    Get.lazyPut(() => CustomerAddController(Get.find(), Get.find()));
+    Get.lazyPut(() => CustomerAddController(Get.find(), Get.find(), Get.find()));
   }
 }

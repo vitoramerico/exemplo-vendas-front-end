@@ -26,6 +26,20 @@ class CustomerDatasource implements ICustomerDatasource {
   }
 
   @override
+  Future<String> edit(CustomerModel value) async {
+    var client = _customConnect.instance;
+
+    var result = await client.post(
+      '$URL_BASE/edit',
+      value.toJson(),
+    );
+
+    if (result.hasError) throw ArgumentError(result.body?['message'] ?? result.statusText);
+
+    return result.body;
+  }
+
+  @override
   Future<List<CustomerModel>> getAll() async {
     var client = _customConnect.instance;
 
@@ -38,5 +52,19 @@ class CustomerDatasource implements ICustomerDatasource {
     List<dynamic> data = result.body;
 
     return data.map((v) => CustomerModel.fromJson(v)).toList();
+  }
+
+  @override
+  Future<CustomerModel> getById(String id) async {
+    var client = _customConnect.instance;
+
+    var result = await client.get(
+      '$URL_BASE/getById',
+      query: {'id': id},
+    );
+
+    if (result.hasError) throw ArgumentError(result.body?['message'] ?? result.statusText);
+
+    return CustomerModel.fromJson(result.body);
   }
 }

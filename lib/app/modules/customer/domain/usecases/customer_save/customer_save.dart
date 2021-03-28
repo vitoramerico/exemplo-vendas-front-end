@@ -15,6 +15,8 @@ class CustomerSave implements ICustomerSave {
   Future<Either<CustomerError, String>> call(CustomerEntity value) async {
     if (!value.isValid) return Left(ValidationError('camposInvalidos'.tr));
 
+    if (value.id.isNotEmpty) return _customerRepository.edit(value);
+
     return _customerRepository.save(value);
   }
 }

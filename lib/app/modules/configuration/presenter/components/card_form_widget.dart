@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vendas/app/shared/components/widgets/custom_button_widget.dart';
-import 'package:get/get.dart';
 
 import '../configuration_controller.dart';
 import 'form_widget.dart';
