@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vendas/app/shared/components/widgets/custom_button_widget.dart';
 import 'package:get/get.dart';
 
-import '../user_add_controller.dart';
+import '../customer_add_controller.dart';
 import 'form_widget.dart';
 
 class CardFormWidget extends StatelessWidget {
-  final UserAddController controller;
+  final CustomerAddController controller;
   final bool isMobile;
 
   const CardFormWidget({

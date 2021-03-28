@@ -3,23 +3,23 @@ import 'package:flutter_vendas/app/shared/components/widgets/scaffold_default_wi
 import 'package:get/get.dart';
 
 import 'components/card_form_widget.dart';
-import 'user_add_controller.dart';
+import 'customer_lst_controller.dart';
 
-class UserAddPage extends GetView<UserAddController> {
+class CustomerLstPage extends GetView<CustomerLstController> {
   @override
   Widget build(BuildContext context) {
-    bool isMobile = MediaQuery.of(context).size.width < 800;
+    bool isMobile = MediaQuery.of(context).size.width < 850;
 
     return ScaffoldDefaultWidget(
-      title: 'cadastroUsuario'.tr,
+      title: 'clientes'.tr,
       body: CardFormWidget(
         controller: controller,
         isMobile: isMobile,
       ),
       floatingActionButton: isMobile
           ? FloatingActionButton(
-              child: const Icon(Icons.save),
-              onPressed: controller.save,
+              child: const Icon(Icons.add),
+              onPressed: controller.openCustomerAdd,
             )
           : null,
     );

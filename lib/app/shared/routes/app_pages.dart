@@ -1,5 +1,9 @@
 import 'package:flutter_vendas/app/modules/configuration/presenter/bindings/configuration_binding.dart';
 import 'package:flutter_vendas/app/modules/configuration/presenter/configuration_page.dart';
+import 'package:flutter_vendas/app/modules/customer/presenter/customer_add/bindings/customer_add_binding.dart';
+import 'package:flutter_vendas/app/modules/customer/presenter/customer_add/customer_add_page.dart';
+import 'package:flutter_vendas/app/modules/customer/presenter/customer_lst/bindings/customer_lst_binding.dart';
+import 'package:flutter_vendas/app/modules/customer/presenter/customer_lst/customer_lst_page.dart';
 import 'package:flutter_vendas/app/modules/home/presenter/bindings/home_binding.dart';
 import 'package:flutter_vendas/app/modules/home/presenter/home_page.dart';
 import 'package:flutter_vendas/app/modules/login/presenter/login/bindings/login_binding.dart';
@@ -45,6 +49,23 @@ class AppPages {
           name: Routes.ORDER,
           page: () => OrderLstPage(),
           binding: OrderLstBinding(),
+        ),
+        GetPage(
+          name: Routes.CUSTOMER,
+          page: () => CustomerLstPage(),
+          binding: CustomerLstBinding(),
+          children: [
+            GetPage(
+              name: Routes.NEW,
+              page: () => CustomerAddPage(),
+              binding: CustomerAddBinding(),
+            ),
+            GetPage(
+              name: '/:id',
+              page: () => CustomerAddPage(),
+              binding: CustomerAddBinding(),
+            ),
+          ],
         ),
         GetPage(
           name: Routes.CONFIGURATION,

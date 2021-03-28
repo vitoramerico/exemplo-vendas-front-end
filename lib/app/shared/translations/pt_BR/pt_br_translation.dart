@@ -20,4 +20,10 @@ final Map<String, String> ptBR = {
   'idioma': 'Idioma',
   'cadastroRealizadoComSucesso': 'Cadastro realizado com sucesso',
   'bemVindo': 'Bem Vindo!',
+  'nenhumResultadoEncontrado': 'Nenhum resultado encontrado',
+  'cpf': 'CPF',
+  'dtCadastro': 'Dt. Cadastro',
+  'dtAlteracao': 'Dt. Alteracao',
+  'cpfInvalido': 'CPF inválido',
+  'cadastroCliente': 'Cadastro Cliente',
 };

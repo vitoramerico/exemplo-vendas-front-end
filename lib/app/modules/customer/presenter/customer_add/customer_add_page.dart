@@ -3,15 +3,15 @@ import 'package:flutter_vendas/app/shared/components/widgets/scaffold_default_wi
 import 'package:get/get.dart';
 
 import 'components/card_form_widget.dart';
-import 'user_add_controller.dart';
+import 'customer_add_controller.dart';
 
-class UserAddPage extends GetView<UserAddController> {
+class CustomerAddPage extends GetView<CustomerAddController> {
   @override
   Widget build(BuildContext context) {
     bool isMobile = MediaQuery.of(context).size.width < 800;
 
     return ScaffoldDefaultWidget(
-      title: 'cadastroUsuario'.tr,
+      title: 'cadastroCliente'.tr,
       body: CardFormWidget(
         controller: controller,
         isMobile: isMobile,

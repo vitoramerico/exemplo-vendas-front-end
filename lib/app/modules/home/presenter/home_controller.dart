@@ -13,6 +13,7 @@ class HomeController extends GetxController {
         Get.toNamed(Get.currentRoute + Routes.ORDER);
         break;
       case 2:
+        Get.toNamed(Get.currentRoute + Routes.CUSTOMER);
         break;
       case 3:
         break;
