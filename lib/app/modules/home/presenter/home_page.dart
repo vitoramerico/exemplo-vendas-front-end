@@ -28,85 +28,87 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Row(
-            children: <Widget>[
-              MouseRegion(
-                onHover: (_) {
-                  if (_extended) return;
-                  setExpanded();
-                },
-                onExit: (_) {
-                  if (!_extended) return;
-                  setCollapse();
-                },
-                child: NavigationRail(
-                  elevation: 14,
-                  selectedIndex: _selectedIndex,
-                  onDestinationSelected: (int index) {
-                    _selectedIndex = index;
-                    //setCollapse();
-                    controller.openPage(index);
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Row(
+              children: <Widget>[
+                MouseRegion(
+                  onHover: (_) {
+                    if (_extended) return;
+                    setExpanded();
                   },
-                  extended: _extended,
-                  leading: Center(
-                    child: AnimatedCrossFade(
-                      firstChild: CircleAvatar(
-                        child: Text(controller.sharedStore.name.substring(0, 1).toUpperCase()),
-                      ),
-                      secondChild: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          controller.sharedStore.name,
-                          style: Get.textTheme?.headline6,
+                  onExit: (_) {
+                    if (!_extended) return;
+                    setCollapse();
+                  },
+                  child: NavigationRail(
+                    elevation: 14,
+                    selectedIndex: _selectedIndex,
+                    onDestinationSelected: (int index) {
+                      _selectedIndex = index;
+                      setCollapse();
+                      controller.openPage(index);
+                    },
+                    extended: _extended,
+                    leading: Center(
+                      child: AnimatedCrossFade(
+                        firstChild: CircleAvatar(
+                          child: Text(controller.sharedStore.name.substring(0, 1).toUpperCase()),
                         ),
+                        secondChild: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            controller.sharedStore.name,
+                            style: Get.textTheme?.headline6,
+                          ),
+                        ),
+                        crossFadeState: _extended ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                        duration: _animationDuration,
                       ),
-                      crossFadeState: _extended ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-                      duration: _animationDuration,
                     ),
-                  ),
-                  destinations: [
-                    NavigationRailDestination(
-                      icon: Icon(Icons.home_outlined),
-                      selectedIcon: Icon(Icons.home),
-                      label: Text('home'.tr),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Icons.post_add_outlined),
-                      selectedIcon: Icon(Icons.post_add),
-                      label: Text('pedidos'.tr),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Icons.person_add_alt_1_outlined),
-                      selectedIcon: Icon(Icons.person_add_alt_1),
-                      label: Text('clientes'.tr),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Icons.qr_code_outlined),
-                      selectedIcon: Icon(Icons.qr_code),
-                      label: Text('produtos'.tr),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Icons.settings_applications_outlined),
-                      selectedIcon: Icon(Icons.settings_applications),
-                      label: Text('configuracoes'.tr),
-                    ),
-                  ],
-                ),
-              ),
-              VerticalDivider(thickness: 1, width: 1),
-              Expanded(
-                child: Center(
-                  child: Lottie.asset(
-                    'assets/animations/home_anim.json',
-                    repeat: false,
+                    destinations: [
+                      NavigationRailDestination(
+                        icon: Icon(Icons.home_outlined),
+                        selectedIcon: Icon(Icons.home),
+                        label: Text('home'.tr),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.post_add_outlined),
+                        selectedIcon: Icon(Icons.post_add),
+                        label: Text('pedidos'.tr),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.person_add_alt_1_outlined),
+                        selectedIcon: Icon(Icons.person_add_alt_1),
+                        label: Text('clientes'.tr),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.qr_code_outlined),
+                        selectedIcon: Icon(Icons.qr_code),
+                        label: Text('produtos'.tr),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.settings_applications_outlined),
+                        selectedIcon: Icon(Icons.settings_applications),
+                        label: Text('configuracoes'.tr),
+                      ),
+                    ],
                   ),
                 ),
-              )
-            ],
-          ),
-        ],
+                VerticalDivider(thickness: 1, width: 1),
+                Expanded(
+                  child: Center(
+                    child: Lottie.asset(
+                      'assets/animations/home_anim.json',
+                      repeat: false,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

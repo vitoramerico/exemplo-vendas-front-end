@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vendas/app/shared/components/widgets/custom_button_widget.dart';
 import 'package:get/get.dart';
 
-import '../user_add_controller.dart';
+import '../product_add_controller.dart';
 import 'form_widget.dart';
 
-class CardFormWidget extends StatelessWidget {
-  final UserAddController controller;
+class ContentWidget extends StatelessWidget {
+  final ProductAddController controller;
   final bool isMobile;
 
-  const CardFormWidget({
+  const ContentWidget({
     Key? key,
     required this.controller,
     required this.isMobile,
@@ -17,16 +17,16 @@ class CardFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isMobile) return _buildFormMobile();
+    if (isMobile) return _buildMobile();
 
-    return _buildFormLarger();
+    return _buildLarger();
   }
 
-  Widget _buildFormMobile() => FormWidget(
+  Widget _buildMobile() => FormWidget(
         controller: controller,
       );
 
-  Widget _buildFormLarger() => Row(
+  Widget _buildLarger() => Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(

@@ -10,8 +10,14 @@ import 'package:flutter_vendas/app/modules/login/presenter/login/bindings/login_
 import 'package:flutter_vendas/app/modules/login/presenter/login/login_page.dart';
 import 'package:flutter_vendas/app/modules/login/presenter/user_add/bindings/user_add_binding.dart';
 import 'package:flutter_vendas/app/modules/login/presenter/user_add/user_add_page.dart';
+import 'package:flutter_vendas/app/modules/order/presenter/order_add/bindings/order_add_binding.dart';
+import 'package:flutter_vendas/app/modules/order/presenter/order_add/order_add_page.dart';
 import 'package:flutter_vendas/app/modules/order/presenter/order_lst/bindings/order_lst_binding.dart';
 import 'package:flutter_vendas/app/modules/order/presenter/order_lst/order_lst_page.dart';
+import 'package:flutter_vendas/app/modules/product/presenter/product_add/bindings/product_add_binding.dart';
+import 'package:flutter_vendas/app/modules/product/presenter/product_add/product_add_page.dart';
+import 'package:flutter_vendas/app/modules/product/presenter/product_lst/bindings/product_lst_binding.dart';
+import 'package:flutter_vendas/app/modules/product/presenter/product_lst/product_lst_page.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -49,6 +55,18 @@ class AppPages {
           name: Routes.ORDER,
           page: () => OrderLstPage(),
           binding: OrderLstBinding(),
+          children: [
+            GetPage(
+              name: Routes.NEW,
+              page: () => OrderAddPage(),
+              binding: OrderAddBinding(),
+            ),
+            GetPage(
+              name: '/:id',
+              page: () => OrderAddPage(),
+              binding: OrderAddBinding(),
+            ),
+          ],
         ),
         GetPage(
           name: Routes.CUSTOMER,
@@ -64,6 +82,23 @@ class AppPages {
               name: '/:id',
               page: () => CustomerAddPage(),
               binding: CustomerAddBinding(),
+            ),
+          ],
+        ),
+        GetPage(
+          name: Routes.PRODUCT,
+          page: () => ProductLstPage(),
+          binding: ProductLstBinding(),
+          children: [
+            GetPage(
+              name: Routes.NEW,
+              page: () => ProductAddPage(),
+              binding: ProductAddBinding(),
+            ),
+            GetPage(
+              name: '/:id',
+              page: () => ProductAddPage(),
+              binding: ProductAddBinding(),
             ),
           ],
         ),

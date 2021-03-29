@@ -6,11 +6,19 @@ import 'package:get/get.dart';
 class CustomerLstController extends GetxController with StateMixin<List<CustomerEntity>> {
   final ICustomerGetAll _customerGetAll;
 
+  bool closeOnClick = false;
+
   CustomerLstController(this._customerGetAll);
 
   @override
   void onInit() {
     super.onInit();
+    _init();
+  }
+
+  void _init() async {
+    closeOnClick = Get.arguments ?? false;
+
     _getData();
   }
 
@@ -30,5 +38,9 @@ class CustomerLstController extends GetxController with StateMixin<List<Customer
     await Get.toNamed(url);
 
     _getData();
+  }
+
+  void clickRow(CustomerEntity customerEntity) {
+    if (closeOnClick) Get.back(result: customerEntity);
   }
 }

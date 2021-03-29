@@ -6,12 +6,12 @@ import 'package:flutter_vendas/app/modules/customer/domain/repositories/customer
 import 'customer_get_by_id_interface.dart';
 
 class CustomerGetById extends ICustomerGetById {
-  final ICustomerRepository _userRepository;
+  final ICustomerRepository _customerRepository;
 
-  CustomerGetById(this._userRepository);
+  CustomerGetById(this._customerRepository);
 
   @override
   Future<Either<CustomerError, CustomerEntity>> call(String id) {
-    return _userRepository.getById(id);
+    return _customerRepository.getById(id);
   }
 }

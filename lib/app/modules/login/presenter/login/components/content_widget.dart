@@ -5,10 +5,10 @@ import '../login_controller.dart';
 import 'form_widget.dart';
 import 'header_form_widget.dart';
 
-class CardFormWidget extends StatelessWidget {
+class ContentWidget extends StatelessWidget {
   final LoginController controller;
 
-  const CardFormWidget({Key? key, required this.controller}) : super(key: key);
+  const ContentWidget({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class CardFormWidget extends StatelessWidget {
     return Card(
       elevation: 6,
       child: Container(
-        height: height < 400 ? width : 400,
-        width: width < 600 ? width : 600,
+        height: GetPlatform.isMobile ? null : (height < 400 ? width : 400),
+        width: GetPlatform.isMobile ? null : (width < 600 ? width : 600),
         child: SingleChildScrollView(
           child: Column(
             children: [

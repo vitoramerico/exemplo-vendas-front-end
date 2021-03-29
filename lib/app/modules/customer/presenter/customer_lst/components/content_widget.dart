@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vendas/app/modules/customer/presenter/customer_lst/components/form_mobile_widget.dart';
+import 'package:flutter_vendas/app/modules/customer/presenter/customer_lst/components/list_customer_mobile_widget.dart';
 import 'package:flutter_vendas/app/modules/customer/presenter/customer_lst/customer_lst_controller.dart';
 import 'package:flutter_vendas/app/shared/components/widgets/custom_button_widget.dart';
 import 'package:get/get.dart';
 
-import 'form_widget.dart';
+import 'list_customer_widget.dart';
 
-class CardFormWidget extends StatelessWidget {
+class ContentWidget extends StatelessWidget {
   final CustomerLstController controller;
   final bool isMobile;
 
-  const CardFormWidget({
+  const ContentWidget({
     Key? key,
     required this.controller,
     required this.isMobile,
@@ -18,22 +18,22 @@ class CardFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isMobile) return _buildFormMobile();
+    if (isMobile) return _buildMobile();
 
-    return _buildFormLarger();
+    return _buildLarger();
   }
 
-  Widget _buildFormMobile() => FormMobileWidget(
+  Widget _buildMobile() => ListCustomerMobileWidget(
         controller: controller,
       );
 
-  Widget _buildFormLarger() => Row(
+  Widget _buildLarger() => Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Card(
               elevation: 4,
-              child: FormWidget(
+              child: ListCustomerWidget(
                 controller: controller,
               ),
             ),

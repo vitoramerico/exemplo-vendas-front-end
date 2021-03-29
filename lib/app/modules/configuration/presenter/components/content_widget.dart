@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../configuration_controller.dart';
 import 'form_widget.dart';
 
-class CardFormWidget extends StatelessWidget {
+class ContentWidget extends StatelessWidget {
   final ConfigurationController controller;
   final bool isMobile;
 
-  const CardFormWidget({
+  const ContentWidget({
     Key? key,
     required this.controller,
     required this.isMobile,
@@ -15,16 +15,16 @@ class CardFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isMobile) return _buildFormMobile();
+    if (isMobile) return _buildMobile();
 
-    return _buildFormLarger();
+    return _buildLarger();
   }
 
-  Widget _buildFormMobile() => FormWidget(
+  Widget _buildMobile() => FormWidget(
         controller: controller,
       );
 
-  Widget _buildFormLarger() => Row(
+  Widget _buildLarger() => Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(

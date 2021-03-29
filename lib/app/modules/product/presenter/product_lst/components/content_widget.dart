@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vendas/app/shared/components/widgets/custom_button_widget.dart';
 import 'package:get/get.dart';
 
-import '../customer_add_controller.dart';
-import 'form_widget.dart';
+import '../product_lst_controller.dart';
+import 'list_product_mobile_widget.dart';
+import 'list_product_widget.dart';
 
-class CardFormWidget extends StatelessWidget {
-  final CustomerAddController controller;
+class ContentWidget extends StatelessWidget {
+  final ProductLstController controller;
   final bool isMobile;
 
-  const CardFormWidget({
+  const ContentWidget({
     Key? key,
     required this.controller,
     required this.isMobile,
@@ -17,33 +18,33 @@ class CardFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isMobile) return _buildFormMobile();
+    if (isMobile) return _buildMobile();
 
-    return _buildFormLarger();
+    return _buildLarger();
   }
 
-  Widget _buildFormMobile() => FormWidget(
+  Widget _buildMobile() => ListProductMobileWidget(
         controller: controller,
       );
 
-  Widget _buildFormLarger() => Row(
+  Widget _buildLarger() => Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Card(
               elevation: 4,
-              child: FormWidget(
+              child: ListProductWidget(
                 controller: controller,
               ),
             ),
           ),
           const SizedBox(width: 5),
           CustomButtonWidget(
-            text: 'salvar'.tr,
-            icon: Icons.save,
+            text: 'novo'.tr,
+            icon: Icons.add,
             width: 200,
             height: 40,
-            onPressed: controller.save,
+            onPressed: controller.openProductAdd,
           ),
         ],
       );

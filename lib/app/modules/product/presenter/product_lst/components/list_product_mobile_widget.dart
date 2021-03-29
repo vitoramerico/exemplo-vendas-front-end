@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vendas/app/modules/product/domain/entities/product_entity.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import 'package:flutter_vendas/app/modules/customer/domain/entities/customer_entity.dart';
-import 'package:flutter_vendas/app/modules/customer/presenter/customer_lst/customer_lst_controller.dart';
-import 'package:flutter_vendas/app/shared/extensions/string_extension.dart';
+import '../product_lst_controller.dart';
 
-class FormMobileWidget extends StatelessWidget {
-  final CustomerLstController controller;
+class ListProductMobileWidget extends StatelessWidget {
+  final ProductLstController controller;
 
-  const FormMobileWidget({Key? key, required this.controller}) : super(key: key);
+  const ListProductMobileWidget({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,24 +22,30 @@ class FormMobileWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildSuccess(List<CustomerEntity> lstValue) => ListView.separated(
+  Widget _buildSuccess(List<ProductEntity> lstValue) => ListView.separated(
         separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, index) => _buidRow(lstValue[index]),
         itemCount: lstValue.length,
       );
 
-  Widget _buidRow(CustomerEntity value) => ListTile(
-        title: Text(value.name),
+  Widget _buidRow(ProductEntity value) => ListTile(
+        title: Text(value.description),
         subtitle: Row(
           children: [
-            Text('cpf'.tr),
+            Text('marca'.tr),
             const SizedBox(width: 5),
-            Expanded(child: Text(value.cpf)),
-            Text('dtCadastro'.tr),
+            Expanded(child: Text(value.brand)),
+            Text('valor'.tr),
             const SizedBox(width: 5),
-            Text(value.createAt?.toDisplayDateTime ?? ' '),
+            Text(value.value.toString()),
           ],
         ),
+        onTap: () {
+          if (controller.closeOnClick)
+            controller.clickRow(value);
+          else
+            controller.openProductAdd(id: value.id);
+        },
       );
 
   Widget _buildError(String error) => Center(

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vendas/app/modules/order/domain/entities/order_entity.dart';
+import 'package:flutter_vendas/app/shared/extensions/string_extension.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import 'package:flutter_vendas/app/modules/customer/domain/entities/customer_entity.dart';
-import 'package:flutter_vendas/app/modules/customer/presenter/customer_lst/customer_lst_controller.dart';
-import 'package:flutter_vendas/app/shared/extensions/string_extension.dart';
+import '../order_lst_controller.dart';
 
 class FormWidget extends StatelessWidget {
-  final CustomerLstController controller;
+  final OrderLstController controller;
 
   const FormWidget({Key? key, required this.controller}) : super(key: key);
 
@@ -23,7 +23,7 @@ class FormWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildSuccess(List<CustomerEntity> lstValue) => DataTable(
+  Widget _buildSuccess(List<OrderEntity> lstValue) => DataTable(
         columns: _buildColumn(),
         rows: lstValue.map((v) => _buidRow(v)).toList(),
       );
@@ -31,19 +31,19 @@ class FormWidget extends StatelessWidget {
   List<DataColumn> _buildColumn() => <DataColumn>[
         DataColumn(
           label: Text(
-            'cpf'.tr,
+            'Cliente'.tr,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
         DataColumn(
           label: Text(
-            'nome'.tr,
+            'observacao'.tr,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
         DataColumn(
           label: Text(
-            'dtCadastro'.tr,
+            'total'.tr,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -55,15 +55,15 @@ class FormWidget extends StatelessWidget {
         ),
       ];
 
-  DataRow _buidRow(CustomerEntity value) => DataRow(
+  DataRow _buidRow(OrderEntity value) => DataRow(
         cells: <DataCell>[
-          DataCell(Text(value.cpf)),
-          DataCell(Text(value.name)),
-          DataCell(Text(value.createAt?.toDisplayDateTime ?? ' ')),
+          DataCell(Text(value.customer.name)),
+          DataCell(Text(value.note)),
+          DataCell(Text(value.vlrTotal.toString())),
           DataCell(
             Text(value.updateAt?.toDisplayDateTime ?? ' '),
             showEditIcon: true,
-            onTap: () => controller.openCustomerAdd(id: value.id),
+            onTap: () => controller.openOrderAdd(id: value.id),
           ),
         ],
       );

@@ -6,12 +6,12 @@ import 'package:flutter_vendas/app/modules/customer/domain/repositories/customer
 import 'customer_get_all_interface.dart';
 
 class CustomerGetAll extends ICustomerGetAll {
-  final ICustomerRepository _userRepository;
+  final ICustomerRepository _customerRepository;
 
-  CustomerGetAll(this._userRepository);
+  CustomerGetAll(this._customerRepository);
 
   @override
   Future<Either<CustomerError, List<CustomerEntity>>> call() {
-    return _userRepository.getAll();
+    return _customerRepository.getAll();
   }
 }

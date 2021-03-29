@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'components/card_form_widget.dart';
+import 'components/content_widget.dart';
 import 'login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
@@ -9,7 +9,7 @@ class LoginPage extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CardFormWidget(controller: controller),
+        child: ContentWidget(controller: controller),
       ),
     );
   }

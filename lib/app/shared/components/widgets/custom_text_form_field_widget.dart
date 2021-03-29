@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class CustomTextFormFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
@@ -76,7 +77,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
 
   InputDecoration _getInputDecoration(BuildContext context) {
     var backgroundColor =
-        _isDarkMode(context) ? Theme.of(context).backgroundColor.withOpacity(0.3) : Colors.grey[200];
+        Get.isDarkMode ? Theme.of(context).backgroundColor.withOpacity(0.3) : Colors.grey[200];
 
     return InputDecoration(
       filled: true,

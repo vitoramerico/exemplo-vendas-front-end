@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vendas/app/shared/components/widgets/scaffold_default_widget.dart';
 import 'package:get/get.dart';
 
-import 'components/card_form_widget.dart';
+import 'components/content_widget.dart';
 import 'user_add_controller.dart';
 
 class UserAddPage extends GetView<UserAddController> {
@@ -12,7 +12,7 @@ class UserAddPage extends GetView<UserAddController> {
 
     return ScaffoldDefaultWidget(
       title: 'cadastroUsuario'.tr,
-      body: CardFormWidget(
+      body: ContentWidget(
         controller: controller,
         isMobile: isMobile,
       ),

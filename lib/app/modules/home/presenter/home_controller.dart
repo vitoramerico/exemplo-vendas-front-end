@@ -16,6 +16,7 @@ class HomeController extends GetxController {
         Get.toNamed(Get.currentRoute + Routes.CUSTOMER);
         break;
       case 3:
+        Get.toNamed(Get.currentRoute + Routes.PRODUCT);
         break;
       case 4:
         Get.toNamed(Get.currentRoute + Routes.CONFIGURATION);

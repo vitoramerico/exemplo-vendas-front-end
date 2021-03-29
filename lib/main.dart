@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       getPages: AppPages.routes,
       defaultTransition: Transition.cupertino,
       theme: appThemeLight,
-      //darkTheme: appThemeDark, //Se deixar habilitado não funciona a mudanca de thema no mac
+      //darkTheme: appThemeDark, //Se deixar habilitado não funciona a mudanca de thema de dark para light
       locale: Get.deviceLocale,
       fallbackLocale: Locale('pt', 'BR'), // Padrão se não encontrar a selecionada
       translationsKeys: AppTranslation.translations,
