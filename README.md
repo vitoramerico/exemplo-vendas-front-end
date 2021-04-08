@@ -1,6 +1,6 @@
 # Descrição
 
-Exemplo de sistema de vendas rodando em Desktop, Web e Mobile. Utilizar essa API [Next_Api_Prisma](https://flutter.dev/docs) para a comunicação.
+Exemplo de sistema de vendas rodando em Desktop, Web e Mobile. Utilizar essa API [Next_Api_Prisma](https://github.com/vitoramerico/nest-api-prisma) para a comunicação.
 
 ## Compilação
 ```bash
