@@ -20,8 +20,6 @@ class LoginStore extends GetxController {
     ever(_login, (String? v) => tecLogin.value = tecLogin.value.copyWith(text: v));
     ever(_password, (String? v) => tecPassword.value = tecPassword.value.copyWith(text: v));
 
-    login = 'vitor@gmail.com';
-    password = '123456';
     super.onInit();
   }
 
